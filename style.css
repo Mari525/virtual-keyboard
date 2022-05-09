@@ -1,0 +1,77 @@
+body {
+	background: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%) no-repeat center center fixed;
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+}
+
+.list {
+	margin: 80px 200px;
+	
+}
+
+.input {
+	width: 500px;
+	height: 150px;
+	display: block;
+	margin: 40px auto;
+	padding: 10px;
+
+	border-radius: 10px;
+	background-color: #120a8f;
+	color: #ffffff;
+}
+
+.keyboard {
+	max-width: 1050px;
+	margin: 0 auto;
+}
+
+.key {
+	min-width: 60px;
+	height: 60px;
+	margin-right: 10px;
+	margin-top: 10px;
+	position: relative;
+
+	border: none;
+	border-radius: 10px;
+	background-color: #120a8f;
+	cursor: pointer;
+	
+	color: #ffffff;
+	font-size: 20px;
+	letter-spacing: 0.1em;
+}
+
+.key::before {
+	content: '';
+	position: absolute;
+	display: block;
+	
+	background-color: #6617cb;
+	background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+	border-radius: 10px;
+	
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+	opacity: 0;
+	transition: all 0.5s;
+}
+
+.key.active::before,
+.key:hover::before {
+	opacity: 1;
+}
+
+.enter, .backspace, .caps, .shift-right, .shift-left, .ctrl-left, .ctrl-right {
+	min-width: 110px;
+	font-size: 16px;
+}
+
+.space {
+	min-width: 263px;
+}
