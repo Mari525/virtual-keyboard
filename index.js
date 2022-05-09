@@ -114,3 +114,47 @@ window.addEventListener('keyup', function(e) {
         }
 	}
 })
+
+for (let i = 0; i < key.length; i++) {
+	key[i].onclick = function() {
+		if (shiftLeft.classList.contains('active') || shiftRight.classList.contains('active')) {
+			input.value += key[i].getAttribute('keyname').toUpperCase();
+		}
+		else {
+			switch (this.getAttribute('keyname')) {
+				case "Control":
+				case "Shift":
+				case "CapsLock":
+				case "Meta":
+				case "Alt":
+				case "Delete":
+					input.value;
+					break;
+				case "Enter":
+					input.value += '\n';
+					break;
+				case "Tab":
+					input.value += '\t';
+					break;
+				case "Backspace":
+					input.value = input.value.substring(0, input.value.length - 1);
+					break;
+				case "ArrowDown":
+					input.value += '↓';
+					break;
+				case "ArrowUp":
+					input.value += '↑';
+					break;
+				case "ArrowLeft":
+					input.value += '←';
+					break;
+				case "ArrowRight":
+					input.value += '→';
+					break;
+							
+				default:
+					input.value += key[i].getAttribute('keyname');
+			}
+		}
+	}
+}
