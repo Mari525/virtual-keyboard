@@ -47,3 +47,70 @@ out += '<button class="key arrow-up">↑</button> \
 		<li>Можно зажимать Shift на клавиатуре и кликать на буквы на виртуальной</li> \
 		</ul> \
 		</section>';
+
+document.querySelector("body").innerHTML = out;
+
+let input = document.querySelector('.input');
+let key = document.querySelectorAll('.key');
+let shiftRight = document.querySelector('.shift-right');
+let shiftLeft = document.querySelector('.shift-left');
+let ctrlLeft = document.querySelector('.ctrl-left');
+let ctrlRight = document.querySelector('.ctrl-right');
+let altRight = document.querySelector('.alt-right');
+let altLeft = document.querySelector('.alt-left');
+let win = document.querySelector('.win');
+let del = document.querySelector('.del');
+let space = document.querySelector('.space');
+let arrowUp = document.querySelector('.arrow-up');
+let arrowLeft = document.querySelector('.arrow-left');
+let arrowDown = document.querySelector('.arrow-down');
+let arrowRight = document.querySelector('.arrow-right');
+
+for (let i = 0; i < key.length; i++) {
+    key[i].setAttribute('keyname', key[i].innerText);
+    key[i].setAttribute('lowKeyname', key[i].innerText.toLowerCase());
+}
+
+ctrlLeft.setAttribute('keyname', 'Control');
+ctrlRight.setAttribute('keyname', 'Control');
+win.setAttribute('keyname', 'Meta');
+del.setAttribute('keyname', 'Delete');
+space.setAttribute('keyname', ' ');
+arrowUp.setAttribute('keyname', 'ArrowUp');
+arrowLeft.setAttribute('keyname', 'ArrowLeft');
+arrowDown.setAttribute('keyname', 'ArrowDown');
+arrowRight.setAttribute('keyname', 'ArrowRight');
+
+window.addEventListener('keydown', function (e) {
+	for (let j = 0; j < key.length; j++) {
+		if (e.key == key[j].getAttribute('keyname') || (e.key == key[j].getAttribute('lowKeyname'))) {
+			key[j].classList.add('active');
+        }
+		if (e.code == 'ShiftLeft') {
+            shiftRight.classList.remove('active');
+        }
+        if (e.code == 'ShiftRight') {
+            shiftLeft.classList.remove('active');
+        }
+		if (e.code == 'ControlLeft') {
+            ctrlRight.classList.remove('active');
+        }
+        if (e.code == 'ControlRight') {
+            ctrlLeft.classList.remove('active');
+        }
+		if (e.code == 'AltLeft') {
+            altRight.classList.remove('active');
+        }
+        if (e.code == 'AltRight') {
+            altLeft.classList.remove('active');
+        }
+	}
+})
+
+window.addEventListener('keyup', function(e) {
+	for (let j = 0; j < key.length; j++) {
+		if ((e.key == key[j].getAttribute('keyname') || (e.key == key[j].getAttribute('lowKeyname')))) {
+            key[j].classList.remove('active');
+        }
+	}
+})
